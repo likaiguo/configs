@@ -14,6 +14,7 @@ import XMonad.ManageHook
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Actions.SpawnOn
+import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -31,6 +32,10 @@ myManageHook = composeAll [
  ]
 
 main = do
+  spawn "trayer --edge top --align right --widthtype percent --width 10 --tint 0x000000 --height 19 --transparent true --alpha 0"
+  spawn "wicd-client -t"
+  spawn "python /home/jiajun/Code/github/goagent/local/goagent-gtk.py"
+  spawn "feh --bg-scale /usr/share/backgrounds/Backyard_Mushrooms_by_Kurt_Zitzelman.jpg"
   xmproc <- spawnPipe "xmobar /home/jiajun/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
@@ -50,4 +55,6 @@ main = do
     [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures'") -- capture screenshot of focused window
     , ((0, xK_Print), spawn "sleep 0.2; scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures'")
     , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 3%-") -- decrease volume  
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 3%+") -- increase volume
     ]
