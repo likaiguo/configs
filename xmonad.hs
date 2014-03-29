@@ -55,6 +55,7 @@ main = do
     [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures'") -- capture screenshot of focused window
     , ((0, xK_Print), spawn "sleep 0.2; scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures'")
     , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock")
+    , ((mod4Mask, xK_w), spawn "chromium-browser ")
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 3%-") -- decrease volume  
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 3%+") -- increase volume
     ]
