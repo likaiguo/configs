@@ -29,7 +29,7 @@ Config {
     -- to just remove this section entirely.
     -- "-t", "<acstatus><watts> (<left>%)",
     Run BatteryP ["BAT1"]
-            ["-t", "<left>%/<timeleft>",
+            ["-t", "Batt:<left>%",
              "-L", "10", "-H", "80", "-p", "3",
              "--", "-O", "<fc=green>On</fc> - ", "-o", "",
              "-L", "-15", "-H", "-5",
