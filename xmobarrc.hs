@@ -9,9 +9,6 @@ Config {
   -- list of commands which gather information about your system for
   -- presentation in the bar. 
   commands = [ 
-    -- Weather
-    Run Weather "ZSCN" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000,
-
     -- Gather and format CPU usage information. 
     -- If it's above 50%, we consider it high usage and make it red.  
     Run Cpu [
@@ -55,5 +52,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %cpu% | %memory% | <fc=#FF0000>%battery%</fc> | <fc=#e6744c>%date%</fc> | %ZSCN%"
+   template = "%StdinReader% }{ %cpu% | %memory% | <fc=#FF0000>%battery%</fc> | <fc=#e6744c>%date% </fc>"
 }
