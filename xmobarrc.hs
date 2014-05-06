@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+Config {position = TopW L 90
+       , font = "xft:Ubuntu Mono-10"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , commands = [ Run Cpu ["-H","50","--high","red"] 20
+                    , Run Memory ["-t","Mem: <usedratio>%"] 20
+                    , Run Date "%a %m/%d %H:%M:%S" "date" 10
+                    , Run BatteryP ["BAT1"]["-t", "Batt:<left>%","-L", "10", "-H", "80", "-p", "3","--", "-O", "<fc=green>On</fc> - ", "-o", "","-L", "-15", "-H", "-5","-l", "red", "-m", "blue", "-h", "green"] 10
+                    , Run Com "/home/jiajun/.xmonad/get-volume" [] "vol" 1
+                    , Run Com "/home/jiajun/.xmonad/uptime.sh" [] "uptime" 600
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | <fc=#FF0000>%battery%</fc> | Vol: <fc=green>%vol%</fc> | <fc=#e6744c>%date% </fc> | %uptime%"
+       }
+=======
 Config { 
   -- Set font and default foreground/background colors. Note that
   -- the height of xmobar is controlled by the font you use.
@@ -54,3 +72,4 @@ Config {
    -- space is significant and can be used to add padding.
    template = "%StdinReader% }{ %cpu% | %memory% | <fc=#FF0000>%battery%</fc> | <fc=#e6744c>%date% </fc>"
 }
+>>>>>>> c093d419afc2a877996ae80afe18a837af566cb6
