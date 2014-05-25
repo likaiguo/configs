@@ -2,17 +2,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ICCCMFocus
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spiral
-import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
-import XMonad.Layout.IM
-import XMonad.Layout.PerWorkspace
-import XMonad.Layout.ToggleLayouts
-import XMonad.ManageHook
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Actions.SpawnOn
@@ -27,44 +17,28 @@ import qualified Data.Map        as M
 myManageHook = composeAll [ 
  isFullscreen --> (doF W.focusDown <+> doFullFloat)
  , resource  =? "desktop_window" --> doIgnore
- , className =? "Virtualbox" --> doShift "4-vm"
  , className =? "Xchat" --> doShift "3-chat"
- , className =? "Pidgin" --> doShift "3-chat"
  , className =? "Gimp" --> doShift "5-gimp"
  ]
-
--- layouts
-imLayout = avoidStruts $
-  IM (1%7) (Or (And (ClassName "Pidgin") (Role "buddy_list"))
-           (And (ClassName "Skype")  (And (Role "") (Not (Title "Options")))))
- 
-tabbedLayout = tabbed shrinkText tabbedConf
- 
-tabbedConf = defaultTheme {
-    fontName = "xft:Terminus"
-}
- 
-genericLayouts = avoidStruts $
-                 smartBorders $
-                 toggleLayouts (noBorders Full) $
-                 tiled ||| tabbedLayout ||| Mirror tiled ||| (noBorders Full)
-  where
-    tiled = Tall 1 (3 / 100) (1 / 2)
- 
-myLayouts = onWorkspaces ["3-chat"] imLayout $
-            genericLayouts
 
 -- Define the names of all workspaces
 myWorkspaces = ["1-work", "2-code", "3-chat", "4-music", "5-gimp"] ++ map show[6..9]
 
+-- Define Terminal
+myTerminal = "gnome-terminal"
+
+-- Define BorderColor
+myNormalBorderColor = "#DDDDDD"
+myFocusedBorderColor = "#3579A8"
+
 main = do
   spawn "feh --bg-scale ~/.xmonad/background.jpg"
+  spawn "compton &"
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
-    {-, layoutHook = avoidStruts  $  layoutHook defaultConfig-}
-    , layoutHook = myLayouts
-    , terminal = "gnome-terminal"
+    , layoutHook = avoidStruts  $  layoutHook defaultConfig
+    , terminal = myTerminal
     , logHook = do
         takeTopFocus
         dynamicLogWithPP $ xmobarPP
@@ -74,8 +48,8 @@ main = do
                         }
     , borderWidth = 1
     , workspaces = myWorkspaces
-    , normalBorderColor = "#E0EEEE"
-    , focusedBorderColor = "#F07746"
+    , normalBorderColor = myNormalBorderColor 
+    , focusedBorderColor = myFocusedBorderColor
     } `additionalKeys`
     [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots'") -- capture screenshot of focused window
     , ((0, xK_Print), spawn "sleep 0.2; scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots'")
