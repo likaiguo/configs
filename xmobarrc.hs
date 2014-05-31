@@ -11,5 +11,5 @@ Config {position = TopW L 90
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% | <fc=#FF0000>%battery%</fc> | Vol: <fc=green>%vol%</fc> | <fc=#e6744c>%date%</fc>"
+       , template = "%StdinReader% }{ %memory% | <fc=#FF0000>%battery%</fc> | Vol: <fc=green>%vol%</fc> | <fc=#e6744c>%date%</fc>"
        }

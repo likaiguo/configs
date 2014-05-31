@@ -14,15 +14,15 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 --ManageHooks
-myManageHook = composeAll [ 
- isFullscreen --> (doF W.focusDown <+> doFullFloat)
- , resource  =? "desktop_window" --> doIgnore
- , className =? "Xchat" --> doShift "3-chat"
- , className =? "Gimp" --> doShift "5-gimp"
- ]
+myManageHook = composeAll [isFullscreen --> (doF W.focusDown <+> doFullFloat)
+                          , resource  =? "desktop_window" --> doIgnore
+                          , resource =? "steam" --> doFloat
+                          , className =? "Xchat" --> doShift "3-chat"
+                          , className =? "Gimp" --> doShift "5-gimp"
+                          ]
 
 -- Define the names of all workspaces
-myWorkspaces = ["1-work", "2-code", "3-chat", "4-music", "5-gimp"] ++ map show[6..9]
+myWorkspaces = ["1-work", "2-code", "3-chat", "4-vm", "5-gimp"] ++ map show[6..9]
 
 -- Define Terminal
 myTerminal = "gnome-terminal"
@@ -33,7 +33,6 @@ myFocusedBorderColor = "#3579A8"
 
 main = do
   spawn "feh --bg-scale ~/.xmonad/background.jpg"
-  spawn "compton &"
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
@@ -48,14 +47,21 @@ main = do
                         }
     , borderWidth = 1
     , workspaces = myWorkspaces
-    , normalBorderColor = myNormalBorderColor 
+    , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
-    } `additionalKeys`
-    [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots'") -- capture screenshot of focused window
-    , ((0, xK_Print), spawn "sleep 0.2; scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots'")
-    , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock")
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 3%-") -- decrease volume  
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 3%+") -- increase volume
+    } 
+    
+    
+    `additionalKeys`
+    [ ((controlMask, xK_Print), spawn "sleep 0.2; gnome-screenshot -a") -- capture screenshot of focused window
+    , ((0, xK_Print), spawn "sleep 0.2; gnome-screenshot ")
+    , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock") -- lock screen
+    , ((mod4Mask, xK_g), spawn "google-chrome") -- launch google-chrome
+    , ((mod4Mask, xK_t), spawn "nautilus") -- launch nautilus
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-") -- decrease volume 
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+") -- increase volume
+    , ((0, xF86XK_AudioPrev), spawn "mocp -r") -- play previus song
+    , ((0, xF86XK_AudioNext), spawn "mocp -f") -- play next song
     , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +20") -- increase brightness
     , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -20") -- decrease brightness
     ]
