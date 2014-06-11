@@ -14,7 +14,6 @@ Bundle 'Auto-Pairs'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'Tagbar'
-Bundle 'Engspchk'
 Bundle 'Mark--Karkat'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
@@ -26,7 +25,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
 Bundle 'Yggdroot/indentLine'
 Bundle 'terryma/vim-expand-region'
-Bundle 'chilicuil/conque'
 
 " haskell
 Bundle 'haskell.vim'
@@ -136,10 +134,10 @@ let hs_hightlight_types = 1
 let hs_hightlight_more_types = 1
 let hs_hightlight_debug = 1
 
-"Vim-Powerline
+"Vim-airline
 set laststatus=2
 set t_Co=256
-let g:Powline_symbols='fancy'
+"let g:Powline_symbols='fancy'
 
 "indentLine
 map <leader>il :IndentLinesToggle<CR>
@@ -153,6 +151,3 @@ let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 " Rainbow
 let g:rainbow_active = 1
-
-" EngSpchk 
-let g:spchkdialect = "usa"

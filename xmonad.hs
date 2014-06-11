@@ -58,6 +58,9 @@ main = do
     , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock") -- lock screen
     , ((mod4Mask, xK_g), spawn "google-chrome") -- launch google-chrome
     , ((mod4Mask, xK_t), spawn "nautilus") -- launch nautilus
+    , ((mod4Mask, xK_f), spawn "firefox") -- launch firefox
+    , ((mod4Mask, xK_e), spawn "evince") -- launch evince
+    , ((mod4Mask, xK_x), spawn "xchat") -- launch xchat
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-") -- decrease volume 
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+") -- increase volume
     , ((0, xF86XK_AudioPrev), spawn "mocp -r") -- play previus song
