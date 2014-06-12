@@ -1,5 +1,6 @@
 #! /bin/bash
-trayer --edge top --align right --widthtype percent --width 10 --tint 0x000000 --height 19 --transparent true --alpha 0 &
+trayer --edge top --align right --widthtype percent --width 15 --tint 0x000000 --height 19 --transparent true --alpha 0 &
+compton &
 xfce4-power-manager &
 nm-applet &
 fcitx-qimpanel &

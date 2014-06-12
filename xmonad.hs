@@ -16,19 +16,18 @@ import qualified Data.Map        as M
 --ManageHooks
 myManageHook = composeAll [isFullscreen --> (doF W.focusDown <+> doFullFloat)
                           , resource  =? "desktop_window" --> doIgnore
-                          , resource =? "steam" --> doFloat
                           , className =? "Xchat" --> doShift "3-chat"
-                          , className =? "Gimp" --> doShift "5-gimp"
+                          , className =? "Gimp" --> doShift "4-gimp"
                           ]
 
 -- Define the names of all workspaces
-myWorkspaces = ["1-work", "2-code", "3-chat", "4-vm", "5-gimp"] ++ map show[6..9]
+myWorkspaces = ["1-work", "2-code", "3-chat", "4-gimp"] ++ map show[5..9]
 
 -- Define Terminal
 myTerminal = "gnome-terminal"
 
 -- Define BorderColor
-myNormalBorderColor = "#DDDDDD"
+myNormalBorderColor = "#000000"
 myFocusedBorderColor = "#3579A8"
 
 main = do
@@ -58,11 +57,10 @@ main = do
     , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock") -- lock screen
     , ((mod4Mask, xK_g), spawn "google-chrome") -- launch google-chrome
     , ((mod4Mask, xK_t), spawn "nautilus") -- launch nautilus
-    , ((mod4Mask, xK_f), spawn "firefox") -- launch firefox
     , ((mod4Mask, xK_e), spawn "evince") -- launch evince
     , ((mod4Mask, xK_x), spawn "xchat") -- launch xchat
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-") -- decrease volume 
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+") -- increase volume
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 3%-") -- decrease volume 
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 3%+") -- increase volume
     , ((0, xF86XK_AudioPrev), spawn "mocp -r") -- play previus song
     , ((0, xF86XK_AudioNext), spawn "mocp -f") -- play next song
     , ((0, xF86XK_MonBrightnessUp), spawn "xbacklight +20") -- increase brightness
