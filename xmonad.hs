@@ -50,8 +50,7 @@ main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
-    {-, layoutHook = avoidStruts  $  layoutHook defaultConfig-}
-    , layoutHook = myLayout
+    , layoutHook = avoidStruts $ myLayout
     , terminal = myTerminal
     , logHook = do
         takeTopFocus
@@ -77,6 +76,7 @@ main = do
     , ((mod4Mask, xK_e), spawn "evince") -- launch evince
     , ((mod4Mask, xK_x), spawn "xchat") -- launch xchat
     , ((mod4Mask, xK_v), spawn "virtualbox") -- launch virtualbox
+    , ((mod4Mask, xK_b), sendMessage ToggleStruts) -- when you need to display xmobar, just press 'win' + 'b'
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 3%-") -- decrease volume 
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 3%+") -- increase volume
     , ((0, xF86XK_AudioPrev), spawn "mocp -r") -- play previus song
