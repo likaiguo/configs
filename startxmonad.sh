@@ -3,8 +3,9 @@ trayer --edge top --align right --widthtype percent --width 15 --tint 0x000000 -
 compton &
 xfce4-power-manager &
 nm-applet &
-fcitx-qimpanel &
+sogou-qimpanel &
 python /home/jiajun/Code/tools/goagent/local/goagent-gtk.py &
+goldendict &
 dropbox start &
 
 # autostartup apps before exec xmonad

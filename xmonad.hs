@@ -38,8 +38,7 @@ myLayout = onWorkspace "3-chat" pidginLayout $ tiled1 ||| Mirror tiled1 ||| Full
           nmaster2 = 2
           ratio = 2/3
           delta = 3/100
-          gridLayout = spacing 3 $ Grid
-          pidginLayout = withIM (20/100) (Role "buddy_list") gridLayout
+          pidginLayout = withIM (20/100) (Role "buddy_list") Grid
 
 -- Define BorderColor
 myNormalBorderColor = "#000000"

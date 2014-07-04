@@ -4,7 +4,7 @@ Config {position = TopW L 86
        , fgColor = "grey"
        , commands = [ Run Cpu ["-H","50","--high","red"] 20
                     , Run Memory ["-t","Mem: <usedratio>%"] 20
-                    , Run Date "%m/%d %H:%M" "date" 10
+                    , Run Date "%a %m/%d %H:%M" "date" 10
                     , Run Com "/home/jiajun/.xmonad/get-volume" [] "vol" 1
                     , Run StdinReader
                     ]
