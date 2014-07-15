@@ -22,7 +22,6 @@ myManageHook = composeAll [isFullscreen --> (doF W.focusDown <+> doFullFloat)
                           , resource  =? "desktop_window" --> doIgnore
                           , className =? "Xchat" --> doShift "3-chat"
                           , className =? "Gimp" --> doShift "4-gimp"
-                          , className =? "Pidgin" --> doShift "3-chat"
                           ]
 
 -- Define the names of all workspaces
@@ -32,13 +31,12 @@ myWorkspaces = ["1-work", "2-code", "3-chat", "4-gimp"] ++ map show[5..9]
 myTerminal = "gnome-terminal"
 
 -- Define Layout
-myLayout = onWorkspace "3-chat" pidginLayout $ tiled1 ||| Mirror tiled1 ||| Full
+myLayout = tiled1 ||| Mirror tiled1 ||| Full
     where tiled1 = Tall nmaster1 delta ratio
           nmaster1 = 1
           nmaster2 = 2
           ratio = 2/3
           delta = 3/100
-          pidginLayout = withIM (20/100) (Role "buddy_list") Grid
 
 -- Define BorderColor
 myNormalBorderColor = "#000000"
