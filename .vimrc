@@ -30,12 +30,11 @@ Bundle 'terryma/vim-expand-region'
 Bundle 'haskell.vim'
 Bundle 'Shougo/context_filetype.vim'
 Bundle 'philopon/haskell-indent.vim'
+
 " c/c++
 Bundle 'a.vim'
 
 filetype plugin indent on    " required!
-
-
 
 " basic settings
 set number
