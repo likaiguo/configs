@@ -7,6 +7,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
+import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Actions.SpawnOn
@@ -47,7 +48,7 @@ main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
-    , layoutHook = avoidStruts $ myLayout
+    , layoutHook = avoidStruts $ smartBorders $ myLayout
     , terminal = myTerminal
     , logHook = do
         takeTopFocus
@@ -69,7 +70,7 @@ main = do
     , ((mod4Mask,  xK_l), spawn "gnome-screensaver-command --lock") -- lock screen
     , ((mod4Mask, xK_g), spawn "google-chrome") -- launch google-chrome
     , ((mod4Mask, xK_f), spawn "firefox") -- launch firefox
-    , ((mod4Mask, xK_t), spawn "nautilus") -- launch nautilus
+    , ((mod4Mask, xK_t), spawn "nautilus --no-desktop") -- launch nautilus
     , ((mod4Mask, xK_e), spawn "evince") -- launch evince
     , ((mod4Mask, xK_x), spawn "xchat") -- launch xchat
     , ((mod4Mask, xK_v), spawn "virtualbox") -- launch virtualbox

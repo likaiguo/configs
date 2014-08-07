@@ -9,6 +9,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " vim-scripts repos
+Bundle 'bash-support.vim'
+Bundle 'python.vim'
+
 " basic plugins
 Bundle 'Auto-Pairs'
 Bundle 'The-NERD-Commenter'
@@ -25,6 +28,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
 Bundle 'Yggdroot/indentLine'
 Bundle 'terryma/vim-expand-region'
+Bundle 'sjl/gundo.vim'
 
 " haskell
 Bundle 'haskell.vim'
@@ -150,3 +154,7 @@ let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 " Rainbow
 let g:rainbow_active = 1
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width = 40
