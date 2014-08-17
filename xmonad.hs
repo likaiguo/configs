@@ -44,7 +44,7 @@ myNormalBorderColor = "#000000"
 myFocusedBorderColor = "#3579A8"
 
 main = do
-  spawn "feh --bg-scale ~/.xmonad/background.jpg"
+  spawn "feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png"
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig

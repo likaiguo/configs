@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " vim-scripts repos
-Bundle 'bash-support.vim'
 Bundle 'python.vim'
 
 " basic plugins
@@ -29,6 +28,7 @@ Bundle 'luochen1990/rainbow'
 Bundle 'Yggdroot/indentLine'
 Bundle 'terryma/vim-expand-region'
 Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-fugitive'
 
 " haskell
 Bundle 'haskell.vim'
@@ -45,6 +45,10 @@ set number
 set cursorline
 set ruler
 set wildmenu
+"重启后撤销历史可用 persistent undo
+set undofile
+set undodir=~/.vim/undodir
+set undolevels=1000 "maximum number of changes that can be undone
 "the-80-line is diffrent
 set cc=80
 "display pairs
