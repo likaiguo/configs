@@ -16,16 +16,22 @@ Bundle 'Auto-Pairs'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'Tagbar'
+" Highlight several words in different colors simultaneously. 
 Bundle 'Mark--Karkat'
 Bundle 'Lokaltog/vim-easymotion'
+" surround.vim: quoting/parenthesizing made simple.
 Bundle 'tpope/vim-surround'
 Bundle 'bling/vim-airline'
+" True Sublime Text style multiple selections for Vim.
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
+" A vim plugin to display the indention levels with thin vertical lines.
 Bundle 'Yggdroot/indentLine'
+" Vim plugin that allows you to visually select increasingly larger regions of
+" text using the same key combination.
 Bundle 'terryma/vim-expand-region'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
@@ -41,6 +47,10 @@ Bundle 'a.vim'
 filetype plugin indent on    " required!
 
 " basic settings
+" search 
+set hlsearch
+set incsearch
+"
 set number
 set cursorline
 set ruler
@@ -61,8 +71,6 @@ set history=1000
 "display search
 set ignorecase
 set magic
-set hlsearch
-set incsearch
 "syntax
 syntax on
 syntax enable
@@ -162,3 +170,16 @@ let g:rainbow_active = 1
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_width = 40
+
+" ================ Easymotion
+let g:EasyMotion_leader_key = 'f'
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
