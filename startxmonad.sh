@@ -8,7 +8,7 @@ gnome-screensaver &
 sogou-qimpanel &
 goldendict &
 
-#start laptop's network manager
+# start laptop's network manager
 if [ -x /usr/bin/nm-applet ] ; then
   nm-applet &
 fi
