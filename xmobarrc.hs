@@ -1,4 +1,4 @@
-Config {position = TopW L 91
+Config {position = TopW L 90
        , font = "xft:Ubuntu Mono-10"
        , bgColor = "black"
        , fgColor = "grey"
