@@ -65,7 +65,7 @@ gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 
 # Remap caps lock to left control. This is not strictly speaking
 # xmonad related, but it's handy if you're a vim user.
-setxkbmap -option 'ctrl:nocaps'
+#setxkbmap -option 'ctrl:nocaps'
 
 # Network manager, so we don't have to configure wifi at the command line.
 if [ -z "$(pgrep nm-applet)" ] ; then
@@ -73,9 +73,9 @@ if [ -z "$(pgrep nm-applet)" ] ; then
 fi
 
 # Remmina remote desktop connection client (-i: start hidden)
-if [ -z "$(pgrep remmina)" ] ; then
-    remmina -i &
-fi
+#if [ -z "$(pgrep remmina)" ] ; then
+    #remmina -i &
+#fi
 
 # Fcitx
 if [ -z "$(pgrep fcitx)" ] ; then

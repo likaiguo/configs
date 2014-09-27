@@ -1,49 +1,50 @@
 set nocompatible    " be iMproved
 filetype off        " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " vim-scripts repos
-Bundle 'python.vim'
+Plugin 'python.vim'
 
 " basic plugins
-Bundle 'Auto-Pairs'
-Bundle 'The-NERD-Commenter'
-Bundle 'The-NERD-tree'
-Bundle 'Tagbar'
+Plugin 'Auto-Pairs'
+Plugin 'The-NERD-Commenter'
+Plugin 'The-NERD-tree'
+Plugin 'Tagbar'
 " Highlight several words in different colors simultaneously. 
-Bundle 'Mark--Karkat'
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Mark--Karkat'
+Plugin 'Lokaltog/vim-easymotion'
 " surround.vim: quoting/parenthesizing made simple.
-Bundle 'tpope/vim-surround'
-Bundle 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
 " True Sublime Text style multiple selections for Vim.
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'luochen1990/rainbow'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'luochen1990/rainbow'
 " A vim plugin to display the indention levels with thin vertical lines.
-Bundle 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 " Vim plugin that allows you to visually select increasingly larger regions of
 " text using the same key combination.
-Bundle 'terryma/vim-expand-region'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-fugitive'
+Plugin 'terryma/vim-expand-region'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
 
 " haskell
-Bundle 'haskell.vim'
-Bundle 'Shougo/context_filetype.vim'
-Bundle 'philopon/haskell-indent.vim'
+Plugin 'haskell.vim'
+Plugin 'Shougo/context_filetype.vim'
+Plugin 'philopon/haskell-indent.vim'
 
 " c/c++
-Bundle 'a.vim'
+Plugin 'a.vim'
 
+call vundle#end()
 filetype plugin indent on    " required!
 
 " basic settings
