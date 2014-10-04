@@ -55,7 +55,10 @@ xcompmgr -n &
 trayer --edge top --align right --widthtype percent --width 11 --tint 0x000000 --height 19 --transparent true --alpha 0 &
 
 # Start goagent
-python /home/jiajun/Code/tools/goagent/local/goagent-gtk.py &
+#python /home/jiajun/Code/tools/goagent/local/goagent-gtk.py &
+
+# start shadowsocks
+shadowsocks-gtk &
 
 # Run the gnome-keyring-daemon to avoid issues you otherwise may encounter
 # when using gnome applications which expect access to the keyring, such
@@ -88,7 +91,7 @@ if [ -z "$(pgrep sogou-qimpanel)" ] ; then
 fi
 
 # Goldendict
-goldendict &
+#goldendict &
 
 # Number Lock on (Keybord)
 numlockx on &
