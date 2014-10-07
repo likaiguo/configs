@@ -3,8 +3,8 @@ Config {position = TopW L 90
        , bgColor = "black"
        , fgColor = "grey"
        , commands = [ Run Date "%a %m/%d %H:%M" "date" 10
-                    , Run Com "/home/jiajun/.xmonad/get-volume" [] "vol" 10
-                    , Run Com "/home/jiajun/.xmonad/get-battery" [] "bat" 10
+                    , Run Com "/home/jiajun/.xmonad/scripts/get-volume.sh" [] "vol" 10
+                    , Run Com "/home/jiajun/.xmonad/scripts/get-battery.sh" [] "bat" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
