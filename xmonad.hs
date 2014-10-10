@@ -24,7 +24,6 @@ myManageHook = composeAll [isFullscreen --> (doF W.focusDown <+> doFullFloat)
                           , resource =? "Dialog" --> doFloat
                           , className =? "rdesktop" --> doFloat
                           , className =? "recordMyDesktop" --> doFloat
-                          , className =? "Xchat" --> doShift "3-chat"
                           ]
 
 -- Define the names of all workspaces
