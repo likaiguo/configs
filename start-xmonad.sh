@@ -58,7 +58,7 @@ trayer --edge top --align right --widthtype percent --width 11 --tint 0x000000 -
 #python /home/jiajun/Code/tools/goagent/local/goagent-gtk.py &
 
 # shadowsocks-gtk
-shadowsocks-gtk &
+#shadowsocks-gtk &
 
 # Run the gnome-keyring-daemon to avoid issues you otherwise may encounter
 # when using gnome applications which expect access to the keyring, such
